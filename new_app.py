@@ -349,7 +349,7 @@ testo_utente = st.text_area("Inserisci il testo da analizzare:", height=250)
 if st.button("Analizza Testo"):
     if testo_utente:
         # 3. Esegui la tua funzione sul testo
-        html_risultato, cttr, gulpease = locate_complexity(testo_utente, nlp, matcher)
+        html_risultato, cttr, gulpease, avg_len = locate_complexity(testo_utente, nlp, matcher)
 
         # 4. Mostra le metriche in colonne
         st.subheader("Metriche di Complessità")
