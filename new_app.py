@@ -351,6 +351,10 @@ if st.button("Analizza Testo"):
         # 3. Esegui la tua funzione sul testo
         html_risultato, cttr, gulpease, avg_len = locate_complexity(testo_utente, nlp, matcher)
 
+        # 5. Mostra il risultato (HTML)
+        st.subheader("Risultato dell'Analisi")
+        st.markdown(html_risultato, unsafe_allow_html=True)
+
         # 4. Mostra le metriche in colonne
         st.subheader("Metriche di Complessità")
         col1, col2, col3 = st.columns(3)
@@ -359,11 +363,7 @@ if st.button("Analizza Testo"):
         with col2:
           st.metric(label="Indice Gulpease", value=gulpease)
         with col3:
-          st.metric(label="Lunghezza media delle frasi", value=avg_sent_len)
+          st.metric(label="Lunghezza media delle frasi", value=avg_len)
 
-        # 5. Mostra il risultato (HTML)
-        st.subheader("Risultato dell'Analisi")
-
-        st.markdown(html_risultato, unsafe_allow_html=True)
     else:
         st.warning("Per favore, inserisci del testo.")
